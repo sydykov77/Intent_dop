@@ -29,12 +29,16 @@ public class MainActivity extends AppCompatActivity {
 
     TextView textView;
     TextView textView2;
+    ImageView imageView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        textView=findViewById(R.id.getTitle);
+        textView2=findViewById(R.id.getDescription);
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -47,12 +51,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-    }
 
-    public void open2Activity(SomeClass someClass) {
-        Intent intent = new Intent(this, Main2Activity.class);
-        intent.putExtra(Main2Activity.TEXT_KEY, someClass);
-        startActivityForResult(intent, 42);
     }
 
 
@@ -83,9 +82,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        SomeClass someClass = (SomeClass) data.getSerializableExtra(RESULT_KEY);
-
-
+        if (requestCode==RESULT_OK&&requestCode==1) {
+            SomeClass someClass = (SomeClass) data.getSerializableExtra(RESULT_KEY);
+            textView.setText(someClass.getTitle());
+            textView2.setText(someClass.getDescription());
+            imageView.setImageDrawable(someClass.image.getDrawable());
+        }
     }
 
 

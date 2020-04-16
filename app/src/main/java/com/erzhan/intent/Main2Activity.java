@@ -49,13 +49,14 @@ public class Main2Activity extends AppCompatActivity {
         title = findViewById(R.id.title);
         save = findViewById(R.id.save);
         description = findViewById(R.id.description);
+        someClass=new SomeClass();
 
         Button save = findViewById(R.id.save);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                someClass.setTitle(title.getText().toString());
+                someClass.setTitle(title.getText().toString());;
                 someClass.setDescription(description.getText().toString());
                 someClass.setImage(imageView);
                 intent.putExtra(MainActivity.RESULT_KEY, someClass);

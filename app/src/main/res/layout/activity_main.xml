@@ -16,6 +16,8 @@
         android:id="@+id/getTitle"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:text=""
+        android:textSize="50sp"
         android:layout_marginTop="400dp" />
 
     <TextView
@@ -30,6 +32,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:text=""
+        android:textSize="50sp"
         app:fabSize="normal"
         app:srcCompat="@android:drawable/ic_input_add" />
 
